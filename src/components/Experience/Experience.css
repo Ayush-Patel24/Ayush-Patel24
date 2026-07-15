@@ -1,0 +1,204 @@
+/* ============ EXPERIENCE — Minimal Classic ============ */
+.experience {
+  position: relative;
+  background: var(--bg-secondary);
+}
+
+.experience-header { margin-bottom: 3.5rem; }
+
+/* Timeline wrapper */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Central line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 28px;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--accent-primary) 10%,
+    var(--border-card) 50%,
+    var(--accent-primary) 90%,
+    transparent
+  );
+  border-radius: 1px;
+}
+
+/* Timeline item */
+.timeline-item {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+/* Dot */
+.timeline-dot {
+  flex-shrink: 0;
+  width: 58px;
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.timeline-dot-inner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  border: 3px solid var(--bg-secondary);
+  box-shadow: 0 0 0 2px var(--accent-primary);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  margin-top: 8px;
+  transition: box-shadow var(--transition-normal);
+}
+
+.timeline-item:hover .timeline-dot-inner {
+  box-shadow: 0 0 0 3px var(--accent-primary), 0 0 8px rgba(176, 141, 87, 0.2);
+}
+
+/* Card */
+.timeline-card {
+  flex: 1;
+  padding: 1.5rem 1.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.timeline-item:hover .timeline-card {
+  border-color: var(--border-subtle);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-card);
+}
+
+.timeline-item:hover .timeline-card::before { opacity: 1; }
+
+.timeline-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.timeline-role {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.timeline-period {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-primary);
+  padding: 0.25rem 0.75rem;
+  background: rgba(176, 141, 87, 0.08);
+  border: 1px solid rgba(176, 141, 87, 0.2);
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.timeline-company {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.timeline-type-badge {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.6rem;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 50px;
+  color: #16a34a;
+  font-family: var(--font-mono);
+}
+
+.timeline-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.timeline-desc ul {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  list-style: none;
+}
+
+.timeline-desc ul li::before {
+  content: '▹ ';
+  color: var(--accent-primary);
+}
+
+.timeline-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* Education section */
+.experience-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.exp-column-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .experience-dual { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+@media (max-width: 500px) {
+  .timeline::before { left: 20px; }
+  .timeline-dot { width: 42px; }
+  .timeline-header { flex-direction: column; }
+}
